@@ -4,7 +4,7 @@ import Account from '../model/account';
 import bodyParser from 'body-parser';
 import passport from 'passport';
 import config from '../config';
-import { generateAccessToken, respond, authenticate } from '../middleware/authmiddleware';
+import { generateAccessToken, respond, authenticate } from '../middleware/authMiddleware';
 
 export default ({ config, db }) => {
 	let api = Router();

@@ -4,6 +4,9 @@ import { Router } from 'express';
 import Foodtruck from '../model/foodtruck';
 import Review from '../model/review';
 
+import { authenticate } from '../middleware/authMiddleware';
+
+
 export default({config, db}) => {
 
 	let api = Router();
@@ -11,7 +14,7 @@ export default({config, db}) => {
 	// CRUD - Create Read Update Delete
 
 	// '/v1/foodtruck/add' // Create
-	api.post('/add', (req,res) => {
+	api.post('/add', authenticate, (req,res) => {
 		let newFoodtruck = new Foodtruck();
 		newFoodtruck.name = req.body.name;
 		newFoodtruck.foodtype = req.body.foodtype;
